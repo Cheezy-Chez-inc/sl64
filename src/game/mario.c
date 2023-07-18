@@ -1246,16 +1246,6 @@ void update_mario_button_inputs(struct MarioState *m) {
         }
     }
 
-    if (m->controller->buttonPressed & R_JPAD) {
-        play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
-        m->particleFlags |= PARTICLE_MIST_CIRCLE;
-        if (Character == 0) {
-            Character = 2;
-        } else {
-            Character = 0;
-        }
-    }
-
 
     if (Character == 0) {
         m->marioObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_LUIGI];
@@ -1264,11 +1254,6 @@ void update_mario_button_inputs(struct MarioState *m) {
     if (Character == 1) {
         m->marioObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_WARIO]; 
     } 
-
-    if (Character == 2) {
-        m->marioObj->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_FIRE_LUIGI]; 
-    } 
-
 
     if (m->input & INPUT_A_PRESSED) {
         m->framesSinceA = 0;

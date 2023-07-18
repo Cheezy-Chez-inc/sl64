@@ -1,7 +1,13 @@
-const GeoLayout RCP_HmsDotstar[] = {
-   GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0x9B, 100),
-   GEO_OPEN_NODE(),
-      GEO_DISPLAY_LIST(LAYER_ALPHA, gfx_dotstar),
-   GEO_CLOSE_NODE(),
-   GEO_END(),
+#include "src/game/envfx_snow.h"
+
+const GeoLayout transparent_star_geo[] = {
+	GEO_NODE_START(),
+	GEO_OPEN_NODE(),
+		GEO_SHADOW(0, 155, 100),
+		GEO_OPEN_NODE(),
+			GEO_DISPLAY_LIST(LAYER_TRANSPARENT, transparent_star_transparent_star_mesh_layer_5),
+		GEO_CLOSE_NODE(),
+		GEO_DISPLAY_LIST(LAYER_TRANSPARENT, transparent_star_material_revert_render_settings),
+	GEO_CLOSE_NODE(),
+	GEO_END(),
 };
