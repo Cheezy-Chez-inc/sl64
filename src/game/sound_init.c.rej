@@ -1,0 +1,25 @@
+diff a/src/game/sound_init.c b/src/game/sound_init.c	(rejected hunks)
+@@ -287,7 +287,22 @@ void stop_shell_music(void) {
+  * Called from threads: thread5_game_loop
+  */
+ void play_cap_music(u16 seqArgs) {
+-    play_music(SEQ_PLAYER_LEVEL, seqArgs, 0);
++
++        play_music(SEQ_PLAYER_LEVEL, seqArgs, 0);
++
++
++    if (sCurrentCapMusic != MUSIC_NONE && sCurrentCapMusic != seqArgs) {
++        stop_background_music(sCurrentCapMusic);
++    }
++    sCurrentCapMusic = seqArgs;
++}
++
++void play_rainbow_music(u16 seqArgs) {
++    // rainbow: makes the music not reset when hitting a new star
++    if (sCurrentCapMusic == MUSIC_NONE) {
++        play_music(SEQ_PLAYER_LEVEL, seqArgs, 0);
++    }
++
+     if (sCurrentCapMusic != MUSIC_NONE && sCurrentCapMusic != seqArgs) {
+         stop_background_music(sCurrentCapMusic);
+     }

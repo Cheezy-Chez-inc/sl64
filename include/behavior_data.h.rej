@@ -1,0 +1,12 @@
+diff a/include/behavior_data.h b/include/behavior_data.h	(rejected hunks)
+@@ -542,5 +542,9 @@ extern const BehaviorScript bhvEndBirds1[];
+ extern const BehaviorScript bhvEndBirds2[];
+ extern const BehaviorScript bhvIntroScene[];
+ extern const BehaviorScript bhvUnusedFakeStar[];
+-
++extern const BehaviorScript bhvRainbowStar[];
++extern const BehaviorScript bhvRainbowTrailParticleSpawner[];
++extern const BehaviorScript bhvCurseParticleSpawner[];
++extern const BehaviorScript bhvSkipsqueak[];
++extern const BehaviorScript bhvCursya[];
+ #endif // BEHAVIOR_DATA_H

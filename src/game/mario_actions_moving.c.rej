@@ -1,0 +1,186 @@
+diff a/src/game/mario_actions_moving.c b/src/game/mario_actions_moving.c	(rejected hunks)
+@@ -62,9 +62,18 @@ struct LandingAction sBackflipLandAction = {
+ Mat4 sFloorAlignMatrix[2];
+ 
+ s16 tilt_body_running(struct MarioState *m) {
+-    s16 pitch = find_floor_slope(m, 0);
+-    pitch = pitch * m->forwardVel / 40.0f;
+-    return -pitch;
++    //rainbow water run. makes mario walk straight
++    if (!(m->flags & MARIO_RAINBOW)) {
++        s16 pitch = find_floor_slope(m, 0);
++        pitch = pitch * m->forwardVel / 40.0f;
++        return -pitch;
++    } else {
++        if ((m->floorHeight > m->waterLevel)) {
++            s16 pitch = find_floor_slope(m, 0);
++            pitch = pitch * m->forwardVel / 40.0f;
++            return -pitch;
++        }
++    }
+ }
+ 
+ void play_step_sound(struct MarioState *m, s16 frame1, s16 frame2) {
+@@ -311,10 +320,13 @@ void apply_slope_accel(struct MarioState *m) {
+                 break;
+         }
+ 
+-        if (floorDYaw > -0x4000 && floorDYaw < 0x4000) {
+-            m->forwardVel += slopeAccel * steepness;
+-        } else {
+-            m->forwardVel -= slopeAccel * steepness;
++        //removes slope accel when walking on water careful when using a slopefix patch
++        if (!(m->flags & MARIO_RAINBOW && m->floorHeight <= m->waterLevel)) {
++            if (floorDYaw > -0x4000 && floorDYaw < 0x4000) {
++                m->forwardVel += slopeAccel * steepness;
++            } else {
++                m->forwardVel -= slopeAccel * steepness;
++            }
+         }
+     }
+ 
+@@ -430,18 +442,29 @@ s32 update_decelerating_speed(struct MarioState *m) {
+ 
+     return stopped;
+ }
+-
++//you only need this when changing speed (didnt know that when making sonic)
+ void update_walking_speed(struct MarioState *m) {
+     f32 maxTargetSpeed;
+     f32 targetSpeed;
++    
++    if (!(m->flags & MARIO_RAINBOW)) {
++        if (m->floor != NULL && m->floor->type == SURFACE_SLOW) {
++            maxTargetSpeed = 24.0f;
++        } else {
++            maxTargetSpeed = 100.0f;
++        }
++    }
++    else {
++        maxTargetSpeed = 800.0f;
+ 
+-    if (m->floor != NULL && m->floor->type == SURFACE_SLOW) {
+-        maxTargetSpeed = 24.0f;
++    }
++    
++    if (!(m->flags & MARIO_RAINBOW)) {
++        targetSpeed = m->intendedMag < maxTargetSpeed ? m->intendedMag : maxTargetSpeed;
+     } else {
+-        maxTargetSpeed = 32.0f;
++        targetSpeed = m->intendedMag * 3 < maxTargetSpeed ? m->intendedMag * 3 : maxTargetSpeed;
+     }
+ 
+-    targetSpeed = m->intendedMag < maxTargetSpeed ? m->intendedMag : maxTargetSpeed;
+ 
+     if (m->quicksandDepth > 10.0f) {
+         targetSpeed *= 6.25 / m->quicksandDepth;
+@@ -450,18 +473,32 @@ void update_walking_speed(struct MarioState *m) {
+     if (m->forwardVel <= 0.0f) {
+         m->forwardVel += 1.1f;
+     } else if (m->forwardVel <= targetSpeed) {
+-        m->forwardVel += 1.1f - m->forwardVel / 43.0f;
++        if (!(m->flags & MARIO_RAINBOW)) {
++            m->forwardVel += 1.1f - m->forwardVel / 43.0f;
++        } else
++            {
++            //change this if you want rainbow mario slower or faster
++            m->forwardVel += 1.6f - m->forwardVel / 100.0f;
++        }
+     } else if (m->floor->normal.y >= 0.95f) {
+         m->forwardVel -= 1.0f;
+     }
+-
+-    if (m->forwardVel > 48.0f) {
+-        m->forwardVel = 48.0f;
++    if (!(m->flags & MARIO_RAINBOW)) {
++        if (m->forwardVel > 48.0f) {
++            m->forwardVel = 48.0f;
++        }
++    }
++    else {
++        if (m->forwardVel > 500.0f) {
++            m->forwardVel = 500.0f;
++        }
+     }
+ 
+     m->faceAngle[1] =
+         m->intendedYaw - approach_s32((s16)(m->intendedYaw - m->faceAngle[1]), 0, 0x800, 0x800);
+-    apply_slope_accel(m);
++    
++        apply_slope_accel(m);
++   
+ }
+ 
+ s32 should_begin_sliding(struct MarioState *m) {
+@@ -487,11 +524,12 @@ s32 check_ground_dive_or_punch(struct MarioState *m) {
+ 
+     if (m->input & INPUT_B_PRESSED) {
+         //! Speed kick (shoutouts to SimpleFlips)
+-        if (m->forwardVel >= 29.0f && m->controller->stickMag > 48.0f) {
+-            m->vel[1] = 20.0f;
+-            return set_mario_action(m, ACT_DIVE, 1);
++        if (!(m->flags & MARIO_TECH_CURSE)) {
++            if (m->forwardVel >= 29.0f && m->controller->stickMag > 48.0f) {
++                m->vel[1] = 20.0f;
++                return set_mario_action(m, ACT_DIVE, 1);
++            }
+         }
+-
+         return set_mario_action(m, ACT_MOVE_PUNCHING, 0);
+     }
+ 
+@@ -519,6 +557,7 @@ void anim_and_audio_for_walk(struct MarioState *m) {
+     s32 val0C = TRUE;
+     s16 targetPitch = 0;
+     f32 val04;
++    struct MarioBodyState *bodyState = m->marioBodyState;
+ 
+     val04 = m->intendedMag > m->forwardVel ? m->intendedMag : m->forwardVel;
+ 
+@@ -587,8 +626,19 @@ void anim_and_audio_for_walk(struct MarioState *m) {
+                         m->actionTimer = 2;
+                     } else {
+                         //! (Speed Crash) If Mario's speed is more than 2^17.
+-                        val14 = (s32)(val04 / 4.0f * 0x10000);
+-                        set_mario_anim_with_accel(m, MARIO_ANIM_RUNNING, val14);
++                        
++                        if ((m->forwardVel > 65.0f) && (m->flags & MARIO_RAINBOW)) {
++                            val14 = (s32)(val04 / 7.0f * 0x10000);
++                            bodyState->handState = MARIO_HAND_OPEN;
++                            //flip replaced with fast running animation
++                            set_mario_anim_with_accel(m, MARIO_ANIM_FORWARD_FLIP, val14);
++                            
++                        } else {
++                             val14 = (s32)(val04 / 4.0f * 0x10000);
++                            set_mario_anim_with_accel(m, MARIO_ANIM_RUNNING, val14);
++                           
++                        }
++                        
+                         play_step_sound(m, 9, 45);
+                         targetPitch = tilt_body_running(m);
+ 
+@@ -778,10 +828,21 @@ s32 act_walking(struct MarioState *m) {
+     Vec3f startPos;
+     s16 startYaw = m->faceAngle[1];
+ 
+-    mario_drop_held_object(m);
++    if ((m->floorHeight < m->waterLevel) && (m->flags & MARIO_RAINBOW)) {
++        m->terrainSoundAddend = (SOUND_TERRAIN_WATER << 16);
++       // m->particleFlags |= PARTICLE_SHALLOW_WATER_SPLASH;
++        spawn_object(m->marioObj, MODEL_WAVE_TRAIL, bhvObjectWaveTrail);
+ 
+-    if (should_begin_sliding(m)) {
+-        return set_mario_action(m, ACT_BEGIN_SLIDING, 0);
++
++    }
++
++    mario_drop_held_object(m);
++    //rainbow water run. stops mario from sliping on geometry below the water
++    if ((m->floorHeight > m->waterLevel)) {
++       
++        if (should_begin_sliding(m)) {
++            return set_mario_action(m, ACT_BEGIN_SLIDING, 0);
++        }
+     }
+ 
+     if (m->input & INPUT_FIRST_PERSON) {

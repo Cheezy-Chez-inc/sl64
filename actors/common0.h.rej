@@ -1,0 +1,14 @@
+diff a/actors/common0.h b/actors/common0.h	(rejected hunks)
+@@ -167,6 +167,12 @@ extern const Gfx goomba_seg8_dl_0801D360[];
+ extern const Gfx goomba_seg8_dl_0801D760[];
+ extern const struct Animation *const goomba_seg8_anims_0801DA4C[];
+ 
++//skipsqueak
++extern const struct Animation *const skipsqueak_anims[];
++
++// cursya
++extern const struct Animation *const cursya_anims[];
++
+ // heart
+ extern const GeoLayout heart_geo[];
+ extern const Gfx heart_seg8_dl_0800DFE0[];

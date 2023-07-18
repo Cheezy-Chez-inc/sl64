@@ -1,0 +1,22 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -61,8 +61,20 @@ build/*
+ !/levels/**/*custom*.png
+ !/levels/**/*custom*/**/*.png
+ !/actors/**/*custom*.png
++!/actors/**/*rainbow*.png
++!/actors/**/*stored*.png
++!/actors/**/*mario*.png
++!/actors/**/*wing*.png
++!/actors/**/*cursya*.png
++!/actors/**/*skipsqueak*.png
+ !/actors/**/*custom*/**/*.png
++!/textures/**/*meta*.png
++!/textures/**/*mario*.png
+ !/textures/**/*custom*.png
++!/textures/**/*rainbow*.png
++!/textures/**/*cursya*.png
++!/textures/**/*skipsqueak*.png
++!/textures/**/*curseya*.png
+ !/textures/**/*custom*/**/*.png
+ !/sound/**/*custom*.m64
+ !/sound/**/*custom*/**/*.m64

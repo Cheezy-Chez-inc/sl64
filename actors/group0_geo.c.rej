@@ -1,0 +1,15 @@
+diff a/actors/group0_geo.c b/actors/group0_geo.c	(rejected hunks)
+@@ -16,3 +16,12 @@
+ #include "water_splash/geo.inc.c"
+ #include "sparkle_animation/geo.inc.c"
+ #include "mario/geo.inc.c"
++
++#include "skipsqueak/geo.inc.c"
++#include "spiny_skipsqueak/geo.inc.c"
++#include "cursya/geo.inc.c"
++#include "cursya_cyan/geo.inc.c"
++#include "cursya_yellow/geo.inc.c"
++#include "cursya_purple/geo.inc.c"
++#include "cursya_red/geo.inc.c"
++#include "cursya_blue/geo.inc.c"
+\ No newline at end of file

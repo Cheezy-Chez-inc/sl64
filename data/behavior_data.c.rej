@@ -1,0 +1,48 @@
+diff a/data/behavior_data.c b/data/behavior_data.c	(rejected hunks)
+@@ -3229,6 +3229,46 @@ const BehaviorScript bhvSparkleParticleSpawner[] = {
+     DEACTIVATE(),
+ };
+ 
++
++const BehaviorScript bhvRainbowTrailParticleSpawner[] = {
++    BEGIN(OBJ_LIST_DEFAULT),
++    PARENT_BIT_CLEAR(oActiveParticleFlags, ACTIVE_PARTICLE_RAINBOW_TRAIL),
++    BEGIN(OBJ_LIST_UNIMPORTANT),
++    BILLBOARD(),
++    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
++    SET_FLOAT(oGraphYOffset, 60),
++   // SCALE(/*Unused*/ 0, /*Field*/ 150),
++    //SET_RANDOM_FLOAT(oMarioParticleFlags, /*Minimum*/ -0, /*Range*/ 0),
++   // SUM_FLOAT(/*Dest*/ oPosX, /*Value 1*/ oPosX, /*Value 2*/ oMarioParticleFlags),
++    //SET_INT(oAnimState, -1),
++    BEGIN_REPEAT(6),
++   // CALL_NATIVE(bhv_rainbow_trail_loop),
++    END_REPEAT(),
++    DEACTIVATE(),
++};
++
++const BehaviorScript bhvCurseParticleSpawner[] = {
++    BEGIN(OBJ_LIST_DEFAULT),
++    PARENT_BIT_CLEAR(oActiveParticleFlags, ACTIVE_PARTICLE_RAINBOW_TRAIL),
++    BEGIN(OBJ_LIST_UNIMPORTANT),
++    BILLBOARD(),
++    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
++    SET_FLOAT(oGraphYOffset, 60),
++    SCALE(/*Unused*/ 0, /*Field*/ 18),
++    SET_RANDOM_FLOAT(oMarioParticleFlags, /*Minimum*/ -50, /*Range*/ 100),
++    SUM_FLOAT(/*Dest*/ oPosX, /*Value 1*/ oPosX, /*Value 2*/ oMarioParticleFlags),
++    SET_RANDOM_FLOAT(oMarioParticleFlags, /*Minimum*/ -50, /*Range*/ 100),
++    SUM_FLOAT(/*Dest*/ oPosZ, /*Value 1*/ oPosZ, /*Value 2*/ oMarioParticleFlags),
++    SET_RANDOM_FLOAT(oMarioParticleFlags, /*Minimum*/ -50, /*Range*/ 100),
++    SUM_FLOAT(/*Dest*/ oPosY, /*Value 1*/ oPosY, /*Value 2*/ oMarioParticleFlags),
++    // SET_INT(oAnimState, -1),
++    BEGIN_REPEAT(4),
++    // CALL_NATIVE(bhv_rainbow_trail_loop),
++    END_REPEAT(),
++    DEACTIVATE(),
++};
++
++
+ const BehaviorScript bhvScuttlebug[] = {
+     BEGIN(OBJ_LIST_GENACTOR),
+     OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),

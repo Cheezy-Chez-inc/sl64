@@ -1,0 +1,16 @@
+diff a/src/game/mario_actions_cutscene.c b/src/game/mario_actions_cutscene.c	(rejected hunks)
+@@ -1510,9 +1510,11 @@ s32 act_squished(struct MarioState *m) {
+                           2.0f - squishAmount);
+             } else {
+                 if (!(m->flags & MARIO_METAL_CAP) && m->invincTimer == 0) {
+-                    // cap on: 3 units; cap off: 4.5 units
+-                    m->hurtCounter += m->flags & MARIO_CAP_ON_HEAD ? 12 : 18;
+-                    play_sound_if_no_flag(m, SOUND_MARIO_ATTACKED, MARIO_MARIO_SOUND_PLAYED);
++                    if (!(m->flags & MARIO_RAINBOW)) {
++                        // cap on: 3 units; cap off: 4.5 units
++                        m->hurtCounter += m->flags & MARIO_CAP_ON_HEAD ? 12 : 18;
++                        play_sound_if_no_flag(m, SOUND_MARIO_ATTACKED, MARIO_MARIO_SOUND_PLAYED);
++                    }
+                 }
+ 
+                 // Both of the 1.8's are really floats, but one of them has to

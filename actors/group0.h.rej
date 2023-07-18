@@ -1,0 +1,33 @@
+diff a/actors/group0.h b/actors/group0.h	(rejected hunks)
+@@ -342,4 +342,31 @@ extern const Gfx white_particle_small_dl_end[];
+ extern const Gfx white_particle_small_dl[];
+ extern const Gfx white_particle_small_unused_dl[];
+ 
++
++
++#include "mario/geo_header.h"
++
++
++
++#include "skipsqueak/geo_header.h"
++
++
++#include "skipsqueak/anim_header.h"
++#include "spiny_skipsqueak/geo_header.h"
++
++
++#include "cursya/geo_header.h"
++
++
++#include "cursya/anim_header.h"
++#include "cursya_cyan/geo_header.h"
++
++#include "cursya_yellow/geo_header.h"
++
++#include "cursya_purple/geo_header.h"
++
++#include "cursya_red/geo_header.h"
++
++#include "cursya_blue/geo_header.h"
++
+ #endif

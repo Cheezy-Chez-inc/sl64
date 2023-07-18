@@ -1,0 +1,32 @@
+diff a/src/game/mario_step.c b/src/game/mario_step.c	(rejected hunks)
+@@ -284,6 +284,15 @@ static s32 perform_ground_quarter_step(struct MarioState *m, Vec3f nextPos) {
+         floor->originOffset = floorHeight; //! Wrong origin offset (no effect)
+     }
+ 
++    if (m->flags & MARIO_RAINBOW) {
++        if ((m->action == ACT_WALKING) && floorHeight < waterLevel && m->forwardVel > 45.0f) {
++            floorHeight = waterLevel;
++            floor = &gWaterSurfacePseudoFloor;
++            floor->originOffset = floorHeight; //! Wrong origin offset (no effect)
++        }
++    }
++
++
+     if (nextPos[1] > floorHeight + 100.0f) {
+         if (nextPos[1] + 160.0f >= ceilHeight) {
+             return GROUND_STEP_HIT_WALL_STOP_QSTEPS;
+@@ -395,6 +404,14 @@ s32 perform_air_quarter_step(struct MarioState *m, Vec3f intendedPos, u32 stepAr
+     f32 ceilHeight;
+     f32 floorHeight;
+     f32 waterLevel;
++    if (m->flags & MARIO_RAINBOW) {
++        if ((m->action == ACT_WALKING) && floorHeight < waterLevel && m->forwardVel > 45.0f) {
++            floorHeight = waterLevel;
++            floor = &gWaterSurfacePseudoFloor;
++            floor->originOffset = floorHeight; //! Wrong origin offset (no effect)
++        }
++    }
++
+ 
+     vec3f_copy(nextPos, intendedPos);
+ 

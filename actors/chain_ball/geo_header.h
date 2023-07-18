@@ -1,0 +1,10 @@
+extern const GeoLayout metallic_ball_geo[];
+extern Lights1 chain_ball_f3dlite_material_004_lights;
+extern u8 chain_ball_chain_ball_rgba16_ci8[];
+extern u8 chain_ball_chain_ball_rgba16_ci8_pal_rgba16[];
+extern Vtx chain_ball_000_displaylist_mesh_layer_4_vtx_0[4];
+extern Gfx chain_ball_000_displaylist_mesh_layer_4_tri_0[];
+extern Gfx mat_chain_ball_f3dlite_material_004[];
+extern Gfx mat_revert_chain_ball_f3dlite_material_004[];
+extern Gfx chain_ball_000_displaylist_mesh_layer_4[];
+extern Gfx chain_ball_material_revert_render_settings[];

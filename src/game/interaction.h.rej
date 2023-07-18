@@ -1,0 +1,9 @@
+diff a/src/game/interaction.h b/src/game/interaction.h	(rejected hunks)
+@@ -13,6 +13,7 @@
+ #define INTERACT_CAP            /* 0x00000020 */ (1 <<  5)
+ #define INTERACT_POLE           /* 0x00000040 */ (1 <<  6)
+ #define INTERACT_KOOPA          /* 0x00000080 */ (1 <<  7)
++#define INTERACT_KOOPA          /* 0x00000080 */ (1 <<  7)
+ #define INTERACT_UNKNOWN_08     /* 0x00000100 */ (1 <<  8)
+ #define INTERACT_BREAKABLE      /* 0x00000200 */ (1 <<  9)
+ #define INTERACT_STRONG_WIND    /* 0x00000400 */ (1 << 10)

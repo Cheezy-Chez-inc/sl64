@@ -1,0 +1,17 @@
+--- src/game/level_update.c
++++ src/game/level_update.c
+@@ -436,13 +434,10 @@ void init_mario_after_warp(void) {
+             play_cap_music(SEQUENCE_ARGS(4, SEQ_EVENT_METAL_CAP));
+         }
+ 
+-        if (gMarioState->flags & (MARIO_VANISH_CAP | MARIO_WING_CAP | MARIO_RAINBOW)) {
++        if (gMarioState->flags & (MARIO_VANISH_CAP | MARIO_WING_CAP)) {
+             play_cap_music(SEQUENCE_ARGS(4, SEQ_EVENT_POWERUP));
+         }
+ 
+-   
+-
+-
+ #ifndef VERSION_JP
+         if (gCurrLevelNum == LEVEL_BOB
+             && get_current_background_music() != SEQUENCE_ARGS(4, SEQ_LEVEL_SLIDE)

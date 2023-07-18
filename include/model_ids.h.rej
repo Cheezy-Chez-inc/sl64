@@ -1,0 +1,25 @@
+diff a/include/model_ids.h b/include/model_ids.h	(rejected hunks)
+@@ -563,6 +563,23 @@
+ #define MODEL_CHUCKYA                     0xDF        // chuckya_geo
+ #define MODEL_WHITE_PUFF                  0xE0        // white_puff_geo
+ #define MODEL_TRAJECTORY_MARKER_BALL          0xE1        // bowling_ball_track_geo - duplicate used in SSL Pyramid small sized and as a track ball
++#define MODEL_RAINBOW_STAR                0xE2        // rainbow_star_geo
++#define MODEL_RAINBOW_TRAIL                0xE3        // rainbow_trail_geo
++#define MODEL_BLUE_RAINBOW_TRAIL                0xE4        // blue_trail_geo
++#define MODEL_GREEN_RAINBOW_TRAIL 0xE5                  // green_trail_geo
++#define MODEL_WHITE_RAINBOW_TRAIL 0xE6                      // white_trail_geo
++#define MODEL_YELLOW_RAINBOW_TRAIL 0xE7                  // yellow_trail_geo
++#define MODEL_CYAN_RAINBOW_TRAIL 0xE8                      // white_trail_geo
++#define MODEL_PINK_RAINBOW_TRAIL 0xE9                     // yellow_trail_geo
++#define MODEL_SKIPSQUEAK 0xEA                      // skipsqueak_geo
++#define MODEL_SPINY_SKIPSQUEAK 0xEB                             // spiny_skipsqueak_geo
++#define MODEL_CURSYA_BACK 0xEC                // cursya_geo
++#define MODEL_CURSYA_NORMAL 0xED                // cursya_cyan_geo
++#define MODEL_CURSYA_REVERSE 0xEE                // cursya_yellow_geo
++#define MODEL_CURSYA_TECH 0xEF                // cursya_purple_geo
++#define MODEL_CURSYA_HEAVY 0xF0                // cursya_red_geo
++#define MODEL_CURSYA_CRASH 0xF1                // cursya_blue_geo
++
+ 
+ // Menu Models (overwrites Level Geometry IDs)
+ #define MODEL_MAIN_MENU_MARIO_SAVE_BUTTON         MODEL_LEVEL_GEOMETRY_03   // main_menu_geo_0001D0

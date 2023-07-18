@@ -1,0 +1,16 @@
+extern const GeoLayout star_geo[];
+extern Lights1 star_f3dlite_material_003_lights;
+extern u8 star_Sm64_early_3d_star_texture__1__ci8[];
+extern u8 star_Sm64_early_3d_star_texture__1__ci8_pal_rgba16[];
+extern u8 star_star_eye_rgba16_ia8[];
+extern Vtx star_000_displaylist_mesh_layer_1_vtx_0[12];
+extern Gfx star_000_displaylist_mesh_layer_1_tri_0[];
+extern Vtx star_001_displaylist_mesh_layer_4_vtx_0[14];
+extern Gfx star_001_displaylist_mesh_layer_4_tri_0[];
+extern Gfx mat_star_f3dlite_material_002[];
+extern Gfx mat_revert_star_f3dlite_material_002[];
+extern Gfx mat_star_f3dlite_material_003[];
+extern Gfx mat_revert_star_f3dlite_material_003[];
+extern Gfx star_000_displaylist_mesh_layer_1[];
+extern Gfx star_001_displaylist_mesh_layer_4[];
+extern Gfx star_material_revert_render_settings[];

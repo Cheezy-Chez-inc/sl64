@@ -1,0 +1,10 @@
+extern const GeoLayout fire_flower_geo[];
+extern Lights1 fire_flower_f3dlite_material_lights;
+extern u8 fire_flower_fire_flower_ci8[];
+extern u8 fire_flower_fire_flower_ci8_pal_rgba16[];
+extern Vtx fire_flower_000_displaylist_mesh_layer_4_vtx_0[4];
+extern Gfx fire_flower_000_displaylist_mesh_layer_4_tri_0[];
+extern Gfx mat_fire_flower_f3dlite_material[];
+extern Gfx mat_revert_fire_flower_f3dlite_material[];
+extern Gfx fire_flower_000_displaylist_mesh_layer_4[];
+extern Gfx fire_flower_material_revert_render_settings[];

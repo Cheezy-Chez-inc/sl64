@@ -1,0 +1,15 @@
+extern const GeoLayout hammer_geo[];
+extern Lights1 hammer_f3dlite_material_lights;
+extern u8 hammer_castle_grounds_textures_0B400_rgba16_ci8[];
+extern u8 hammer_castle_grounds_textures_0B400_rgba16_ci8_pal_rgba16[];
+extern u8 hammer_mario_metal_rgba16_i8[];
+extern Vtx hammer_hAMMA_mesh_layer_1_vtx_0[123];
+extern Gfx hammer_hAMMA_mesh_layer_1_tri_0[];
+extern Vtx hammer_hAMMA_mesh_layer_1_vtx_1[79];
+extern Gfx hammer_hAMMA_mesh_layer_1_tri_1[];
+extern Gfx mat_hammer_f3dlite_material[];
+extern Gfx mat_revert_hammer_f3dlite_material[];
+extern Gfx mat_hammer_f3dlite_material_001[];
+extern Gfx mat_revert_hammer_f3dlite_material_001[];
+extern Gfx hammer_hAMMA_mesh_layer_1[];
+extern Gfx hammer_material_revert_render_settings[];

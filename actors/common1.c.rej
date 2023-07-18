@@ -1,0 +1,10 @@
+diff a/actors/common1.c b/actors/common1.c	(rejected hunks)
+@@ -64,6 +64,8 @@ UNUSED static const u64 binid_14 = 14;
+ UNUSED static const u64 binid_15 = 15;
+ 
+ #include "star/model.inc.c"
++#include "rainbow_star/model.inc.c"
++#include "rainbow_trail/model.inc.c"
+ UNUSED static const u64 binid_16 = 16;
+ 
+ #include "sand/model.inc.c"

@@ -1,0 +1,47 @@
+diff a/include/types.h b/include/types.h	(rejected hunks)
+@@ -107,6 +107,7 @@ struct GraphNode
+     /*0x08*/ struct GraphNode *next;
+     /*0x0C*/ struct GraphNode *parent;
+     /*0x10*/ struct GraphNode *children;
++
+ };
+ 
+ struct AnimInfo
+@@ -126,6 +127,7 @@ struct GraphNodeObject
+     /*0x14*/ struct GraphNode *sharedChild;
+     /*0x18*/ s8 areaIndex;
+     /*0x19*/ s8 activeAreaIndex;
++		
+     /*0x1A*/ Vec3s angle;
+     /*0x20*/ Vec3f pos;
+     /*0x2C*/ Vec3f scale;
+@@ -259,6 +261,7 @@ struct MarioBodyState
+     /*0x12*/ Vec3s headAngle;
+     /*0x18*/ Vec3f heldObjLastPosition; /// also known as HOLP
+     u8 padding[4];
++    
+ };
+ 
+ struct OffsetSizePair
+@@ -284,6 +287,7 @@ struct MarioAnimation
+ 
+ struct MarioState
+ {
++    
+     /*0x00*/ u16 unk00;
+     /*0x02*/ u16 input;
+     /*0x04*/ u32 flags;
+@@ -340,10 +344,13 @@ struct MarioState
+     /*0xB4*/ u8 squishTimer;
+     /*0xB5*/ u8 fadeWarpOpacity;
+     /*0xB6*/ u16 capTimer;
++    /*cursya*/ u16 curseTimer;
+     /*0xB8*/ s16 prevNumStarsForDialog;
+     /*0xBC*/ f32 peakHeight;
+     /*0xC0*/ f32 quicksandDepth;
+     /*0xC4*/ f32 unkC4;
++    f32 jumpModifier;
++    
+ };
+ 
+ #endif // TYPES_H

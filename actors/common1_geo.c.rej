@@ -1,0 +1,10 @@
+diff a/actors/common1_geo.c b/actors/common1_geo.c	(rejected hunks)
+@@ -20,6 +20,8 @@
+ #include "number/geo.inc.c"
+ #include "mushroom_1up/geo.inc.c"
+ #include "star/geo.inc.c"
++#include "rainbow_star/geo.inc.c"
++#include "rainbow_trail/geo.inc.c"
+ #include "dirt/geo.inc.c"
+ #include "transparent_star/geo.inc.c"
+ #include "white_particle/geo.inc.c"

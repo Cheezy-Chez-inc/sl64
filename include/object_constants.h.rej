@@ -1,0 +1,36 @@
+diff a/include/object_constants.h b/include/object_constants.h	(rejected hunks)
+@@ -18,7 +18,10 @@
+ #define ACTIVE_FLAG_UNK9                   (1 <<  9) // 0x0200
+ #define ACTIVE_FLAG_UNK10                  (1 << 10) // 0x0400
+ 
+-
++//rainbow star
++Gfx *set_switch_color(s32 run, struct GraphNode *node, UNUSED void *context);
++// rainbow star
++Gfx *set_switch_color_cursya(s32 run, struct GraphNode *node, UNUSED void *context);
+ /* respawnInfoType */
+ #define RESPAWN_INFO_TYPE_NULL 0
+ #define RESPAWN_INFO_TYPE_32   1
+@@ -118,6 +121,7 @@
+ #define ACTIVE_PARTICLE_BREATH               (1 << 17) // 0x00020000
+ #define ACTIVE_PARTICLE_V_STAR               (1 << 18) // 0x00040000
+ #define ACTIVE_PARTICLE_TRIANGLE             (1 << 19) // 0x00080000
++#define ACTIVE_PARTICLE_RAINBOW_TRAIL               (1 << 20) // 0x00120000
+ 
+ /* oAction */
+ #define OBJ_ACT_LAVA_DEATH 100
+@@ -517,6 +521,14 @@
+     #define GOOMBA_ACT_ATTACKED_MARIO 1
+     #define GOOMBA_ACT_JUMP 2
+ 
++/* Skipsqueak */
++#define SKIPSQUEAK_ACT_IDLE 0
++#define SKIPSQUEAK_ACT_JUMP 2
++
++/* CURSYA */
++#define CURSYA_ACT_WANDER 0
++#define CURSYA_ACT_SHAKE 1
++
+ /* Chain chomp */
+     /* oAction */
+     #define CHAIN_CHOMP_ACT_UNINITIALIZED 0

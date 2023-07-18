@@ -1,0 +1,10 @@
+diff a/src/game/behaviors/koopa.inc.c b/src/game/behaviors/koopa.inc.c	(rejected hunks)
+@@ -19,7 +19,7 @@ static struct ObjectHitbox sKoopaHitbox = {
+     /* numLootCoins:      */ -1,
+     /* radius:            */ 60,
+     /* height:            */ 40,
+-    /* hurtboxRadius:     */ 40,
++    /* hurtboxRadius:     */ 60,
+     /* hurtboxHeight:     */ 30,
+ };
+ 

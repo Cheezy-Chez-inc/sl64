@@ -1,0 +1,59 @@
+diff a/actors/common1.h b/actors/common1.h	(rejected hunks)
+@@ -205,6 +205,49 @@ extern const Gfx star_seg3_dl_0302B870[];
+ extern const Gfx star_seg3_dl_0302B9C0[];
+ extern const Gfx star_seg3_dl_0302BA18[];
+ 
++// rainbow star
++extern const GeoLayout rainbow_star_geo[];
++extern Vtx rainbow_star_000_displaylist_mesh_vtx_0[12];
++extern Gfx rainbow_star_000_displaylist_mesh_tri_0[];
++extern Gfx rainbow_star_000_displaylist_mesh[];
++extern Gfx rainbow_star_material_revert_render_settings[];
++
++//rainbow trail
++extern const GeoLayout red_trail_shadow_geo[];
++extern const GeoLayout red_trail_geo[];
++extern const GeoLayout blue_trail_geo[];
++extern const GeoLayout green_trail_geo[];
++extern const GeoLayout white_trail_geo[];
++extern const GeoLayout yellow_trail_geo[];
++extern const GeoLayout cyan_trail_geo[];
++extern const GeoLayout pink_trail_geo[];
++//red
++extern const Gfx rainbow_trail_seg3_dl_0301B320[];
++extern const Gfx rainbow_trail_seg3_dl_0301B3B0[];
++//blue
++extern const Gfx rainbow_trail_seg3_dl_0301B470[];
++extern const Gfx rainbow_trail_seg3_dl_0301B500[];
++//green
++extern const Gfx rainbow_trail_seg3_dl_0301B5C0[];
++extern const Gfx rainbow_trail_seg3_dl_0301B650[];
++//white
++extern const Gfx rainbow_trail_seg3_dl_white_color[];
++extern const Gfx rainbow_trail_seg3_dl_white_texture[];
++
++// yellow
++extern const Gfx rainbow_trail_seg3_dl_yellow_color[];
++extern const Gfx rainbow_trail_seg3_dl_yellow_texture[];
++
++// cyan
++extern const Gfx rainbow_trail_seg3_dl_cyan_color[];
++extern const Gfx rainbow_trail_seg3_dl_cyan_texture[];
++
++// pink
++extern const Gfx rainbow_trail_seg3_dl_pink_color[];
++extern const Gfx rainbow_trail_seg3_dl_pink_texture[];
++
++
++
+ // transparent_star
+ extern const GeoLayout transparent_star_geo[];
+ extern const Gfx transparent_star_seg3_dl_0302C560[];
+@@ -250,4 +293,7 @@ extern const Gfx wooden_signpost_seg3_dl_0302DCD0[];
+ extern const Gfx wooden_signpost_seg3_dl_0302DD08[];
+ extern const Collision wooden_signpost_seg3_collision_0302DD80[];
+ 
++
++#include "rainbow_star/geo_header.h"
++
+ #endif

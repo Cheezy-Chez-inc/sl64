@@ -1,0 +1,20 @@
+diff a/actors/group0.c b/actors/group0.c	(rejected hunks)
+@@ -25,3 +25,17 @@
+ #include "white_particle_small/model.inc.c"
+ 
+ #include "sparkle_animation/model.inc.c"
++
++
++#include "skipsqueak/model.inc.c"
++#include "skipsqueak/anims/data.inc.c"
++#include "skipsqueak/anims/table.inc.c"
++#include "spiny_skipsqueak/model.inc.c"
++#include "cursya/model.inc.c"
++#include "cursya/anims/data.inc.c"
++#include "cursya/anims/table.inc.c"
++#include "cursya_cyan/model.inc.c"
++#include "cursya_yellow/model.inc.c"
++#include "cursya_purple/model.inc.c"
++#include "cursya_red/model.inc.c"
++#include "cursya_blue/model.inc.c"
+\ No newline at end of file

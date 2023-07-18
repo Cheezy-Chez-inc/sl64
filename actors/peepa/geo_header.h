@@ -1,0 +1,10 @@
+extern const GeoLayout peepa_geo[];
+extern Lights1 peepa_f3dlite_material_003_lights;
+extern u8 peepa_peepa_ci8[];
+extern u8 peepa_peepa_ci8_pal_rgba16[];
+extern Vtx peepa_000_displaylist_mesh_layer_1_vtx_0[281];
+extern Gfx peepa_000_displaylist_mesh_layer_1_tri_0[];
+extern Gfx mat_peepa_f3dlite_material_003[];
+extern Gfx mat_revert_peepa_f3dlite_material_003[];
+extern Gfx peepa_000_displaylist_mesh_layer_1[];
+extern Gfx peepa_material_revert_render_settings[];
