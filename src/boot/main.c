@@ -314,8 +314,6 @@ void thread3_main(UNUSED void *arg) {
 #if 0 // if your PC username isn't your real name feel free to uncomment
     osSyncPrintf("Built by: %s\n", __username__);
 #endif
-    osSyncPrintf("Compiler: %s\n", __compiler__);
-    osSyncPrintf("Linker  : %s\n", __linker__);
 #endif
 
     create_thread(&gSoundThread, THREAD_4_SOUND, thread4_sound, NULL, gThread4Stack + 0x2000, 20);
