@@ -71,9 +71,6 @@
     "15_cutscene_star_spawn": [
         "0E"
     ],
-    "16_event_boss": [
-        "Boss"
-    ],
     "17_cutscene_collect_key": [
         "1A"
     ],
@@ -122,5 +119,8 @@
     ],
     "03_level_grass": [
         "opening"
+    ],
+    "16_event_boss": [
+        "boss_battle"
     ]
 }
